@@ -26,8 +26,6 @@ if (process.env.NODE_ENV === 'development') {
 const app = express();
 const PORT = process.env.PORT;
 
-app.enable("trust proxy");
-
 //middleware
 app.use(cors({
     credentials: true,
