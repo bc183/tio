@@ -100,16 +100,3 @@ export default function create() {
         </div>
     )
 }
-
-export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-    try {
-        const cookie = req.headers.cookie;
-        if(!cookie) {
-            throw new Error('Missing cookie');
-        }
-        await Axios.get('/auth/me', { headers: { cookie } })
-        return { props: {message: 'Message'} }
-    } catch (error) {
-        res.writeHead(307, { Location: '/login' }).end();
-    }
-} 

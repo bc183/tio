@@ -12,8 +12,9 @@ import miscRoutes from './routes/misc';
 import userRoutes from './routes/users';
 import trim from "./middleware/trim";
 
+dotenv.config();
+
 if (process.env.NODE_ENV === 'development') {
-    dotenv.config();
     import('morgan').
         then((morgan) => {
             app.use(morgan.default('dev'));
