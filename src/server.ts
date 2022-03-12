@@ -28,7 +28,7 @@ const PORT = process.env.PORT;
 //middleware
 app.use(cors({
     credentials: true,
-    origin: "https://tio.vercel.app/",
+    origin: process.env.ORIGIN,
     optionsSuccessStatus: 200
 }));
 app.use(express.json());
