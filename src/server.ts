@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import {createConnection} from "typeorm";
 import dotenv from 'dotenv';
-import express from 'express';
+import express, { response } from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
@@ -41,6 +41,10 @@ app.use('/api/posts', postRoutes);
 app.use('/api/subs', subRoutes);
 app.use('/api/misc', miscRoutes);
 app.use('/api/users', userRoutes);
+
+app.get('/', (request, response) => {
+    return response.send("<h1> 200 OK <h1>");
+});
 
 
 app.listen(PORT,async () => {
