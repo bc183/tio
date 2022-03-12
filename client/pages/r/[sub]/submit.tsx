@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { GetServerSideProps, GetServerSidePropsResult } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ChangeEvent, createRef, FormEvent, Fragment, useState } from "react";
@@ -147,6 +147,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
         await Axios.get('/auth/me', { headers: { cookie } })
         return { props: {message: 'Message'} }
     } catch (error) {
-        res.writeHead(307, { Location: '/login' }).end();
+        return {
+            redirect: {
+                destination: '/login',
+                statusCode: 307
+            }
+        }
     }
 } 
