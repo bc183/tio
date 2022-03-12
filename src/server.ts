@@ -31,6 +31,8 @@ app.use(trim)
 app.use(cookieParser());
 app.use(cors({
     credentials: true,
+    origin: process.env.ORIGIN,
+    optionsSuccessStatus: 200
 }));
 app.use(express.static('public'));
 //routes
