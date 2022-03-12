@@ -24,7 +24,5 @@ module.exports = {
       "migrationsDir": rootDir + "/migrations",
       "subscribersDir": rootDir + "/subscribers"
    },
-   "extra": {
-      ssl: true
-   }
+   "ssl": true
 }
