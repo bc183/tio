@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import {createConnection} from "typeorm";
 import dotenv from 'dotenv';
-import express, { response } from 'express';
+import express from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
@@ -13,7 +13,16 @@ import userRoutes from './routes/users';
 import trim from "./middleware/trim";
 import User from "./entities/User";
 
-dotenv.config();
+if (process.env.NODE_ENV === 'development') {
+    dotenv.config();
+    import('morgan').
+        then((morgan) => {
+            app.use(morgan.default('dev'));
+        })
+        .catch(err => 
+            console.log(err)
+        )
+}
 
 const app = express();
 const PORT = process.env.PORT;
@@ -24,15 +33,6 @@ app.use(cors({
     optionsSuccessStatus: 200
 }));
 app.use(express.json());
-if (process.env.NODE_ENV === 'development') {
-    import('morgan').
-        then((morgan) => {
-            app.use(morgan.default('dev'));
-        })
-        .catch(err => 
-            console.log(err)
-        )
-}
 app.use(trim)
 app.use(cookieParser());
 app.use(express.static('public'));
