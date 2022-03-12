@@ -18,6 +18,11 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT;
 //middleware
+app.use(cors({
+    credentials: true,
+    origin: process.env.ORIGIN,
+    optionsSuccessStatus: 200
+}));
 app.use(express.json());
 if (process.env.NODE_ENV === 'development') {
     import('morgan').
@@ -30,11 +35,6 @@ if (process.env.NODE_ENV === 'development') {
 }
 app.use(trim)
 app.use(cookieParser());
-// app.use(cors({
-//     credentials: true,
-//     origin: process.env.ORIGIN,
-//     optionsSuccessStatus: 200
-// }));
 app.use(express.static('public'));
 //routes
 app.use('/api/auth', authRoutes);
