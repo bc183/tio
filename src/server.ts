@@ -17,7 +17,6 @@ import userRoutes from './routes/users';
 
 
 import trim from "./middleware/trim";
-import path from "path";
 
 const app = express();
 const PORT = process.env.PORT;

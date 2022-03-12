@@ -10,7 +10,7 @@ module.exports = {
    "synchronize": false,
    "logging": process.env.NODE_ENV === 'development',
    "entities": [
-      rootDir + "/entities/**/*{.ts,.js}"
+      rootDir + "/entities/**/*{.ts,.js}",
    ],
    "migrations": [
       rootDir + "/migrations/**/*{.ts,.js}"

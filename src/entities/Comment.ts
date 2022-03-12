@@ -1,5 +1,4 @@
 import { Exclude, Expose } from 'class-transformer';
-import { isHexColor } from 'class-validator';
 import { BeforeInsert, Column, Entity as TOEntity, Index, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 import { makeid } from '../utils/helper';
 import Entity from './Entity'
