@@ -31,8 +31,6 @@ app.use(trim)
 app.use(cookieParser());
 app.use(cors({
     credentials: true,
-    origin: "https://tio.vercel.app/",
-    optionsSuccessStatus: 200
 }));
 app.use(express.static('public'));
 //routes
