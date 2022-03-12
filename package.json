@@ -48,7 +48,7 @@
       "build": "npx tsc",
       "dev": "nodemon --exec ts-node src/server.ts",
       "typeorm": "ts-node ./node_modules/typeorm/cli.js",
-      "seed": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed",
+      "seed": "npx ts-node ./node_modules/typeorm-seeding/dist/cli.js seed",
       "migrate": "typeorm migration:generate -n"
    }
 }
