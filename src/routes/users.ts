@@ -4,7 +4,6 @@ import path from "path";
 import fs from 'fs';
 import Comment from "../entities/Comment";
 import Post from "../entities/Post";
-import Sub from "../entities/Sub";
 import User from "../entities/User";
 import user from "../middleware/user";
 import { makeid } from "../utils/helper";
