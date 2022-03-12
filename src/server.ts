@@ -11,6 +11,7 @@ import subRoutes from './routes/subs';
 import miscRoutes from './routes/misc';
 import userRoutes from './routes/users';
 import trim from "./middleware/trim";
+import User from "./entities/User";
 
 dotenv.config();
 
@@ -42,8 +43,9 @@ app.use('/api/subs', subRoutes);
 app.use('/api/misc', miscRoutes);
 app.use('/api/users', userRoutes);
 
-app.get('/', (request, response) => {
-    return response.send("<h1> 200 OK <h1>");
+app.get('/', async (request, response) => {
+    const users = await User.find();
+    return response.json(users);
 });
 
 
