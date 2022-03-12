@@ -11,7 +11,6 @@ import subRoutes from './routes/subs';
 import miscRoutes from './routes/misc';
 import userRoutes from './routes/users';
 import trim from "./middleware/trim";
-import User from "./entities/User";
 
 if (process.env.NODE_ENV === 'development') {
     dotenv.config();
@@ -43,9 +42,8 @@ app.use('/api/subs', subRoutes);
 app.use('/api/misc', miscRoutes);
 app.use('/api/users', userRoutes);
 
-app.get('/', async (request, response) => {
-    const users = await User.find();
-    return response.json(users);
+app.get('/', (request, response) => {
+    response.send("hi");
 });
 
 
