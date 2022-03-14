@@ -86,7 +86,7 @@ export default function PostCard({ post, revalidate, setVote, setDummy }: PostCa
                 <div className="flex items-center ">
                   {!isInSubpage && (<Fragment>
                   <Link href={`/r/${post.subName}`}>
-                      <img src={post.sub.imageUrl || 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y'} 
+                      <img src={'process.env.APP_DOMAIN' + post.sub.imageUrl || 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y'} 
                         className="w-6 h-6 mr-1 rounded-full cursor-pointer"
                           />
                   </Link>
